@@ -26,7 +26,8 @@ namespace CSharp
             Console.WriteLine("  [HttpClient] Response: " + response.Substring(0, 50) + "...");
         }
 
-        // Simulates processing 10 files in parallel
+
+        //// Simulates processing 10 files in parallel
         public void SimulateFileProcessing()
         {
             Parallel.For(1, 11, i =>
@@ -37,7 +38,7 @@ namespace CSharp
             });
         }
 
-        // Demonstrates a safe counter using lock
+        //// Demonstrates a safe counter using lock
         public void ThreadSafeCounter()
         {
             object locker = new object();

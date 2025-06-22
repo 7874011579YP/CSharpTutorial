@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CSharp;
 using System;
+using static CSharp.Abstraction;
+using static CSharp.Interface;
 
 
 
@@ -99,25 +101,59 @@ Console.WriteLine("Hello, Geeks! We are learning her C# programming.");
 
 # region 5.Mutlthreading
 
-Console.WriteLine("=== Multithreading Demo App ===\n");
+//Console.WriteLine("Multithreading Demo App");
 
-MultiThreading multiThreading = new MultiThreading();
-// 1. Run Background Task
-Console.WriteLine("1. Background Task (Task.Run)");
-await Task.Run(() => multiThreading.HeavyComputation());
+//MultiThreading multiThreading = new MultiThreading();
+//// 1. Run Background Task
+//Console.WriteLine("1. Background Task (Task.Run)");
+//await Task.Run(() => multiThreading.HeavyComputation());
 
-// 2. API Call using async/await
-Console.WriteLine("\n2. Async API Call");
-await multiThreading.CallApiAsync();
+////// 2. API Call using async/await
+//Console.WriteLine("\n2. Async API Call");
+//await multiThreading.CallApiAsync();
 
-// 3. Parallel For Loop
-Console.WriteLine("\n3. Parallel File Processing Simulation");
-multiThreading.SimulateFileProcessing();
+////// 3. Parallel For Loop
+//Console.WriteLine("\n3. Parallel File Processing Simulation");
+//multiThreading.SimulateFileProcessing();
 
-// 4. Shared Counter with Lock
-Console.WriteLine("\n4. Safe Counter with Lock");
-multiThreading.ThreadSafeCounter();
+////// 4. Shared Counter with Lock
+////Console.WriteLine("\n4. Safe Counter with Lock");
+////multiThreading.ThreadSafeCounter();
 
-Console.WriteLine("\nAll operations completed.");
+//Console.WriteLine("\nAll operations completed.");
 
 #endregion
+
+# region 6.Abstraction
+//Console.WriteLine("=== Abstraction Example with Abstract Class ===\n");
+
+//// We cannot do: Animal a = new Animal(); // ❌ Compilation error
+
+//// Create Dog and Cat instances (they inherit from Animal)
+//Animal myDog = new Dog();
+//Animal myCat = new Cat();
+
+//// Call methods via the abstract reference
+//myDog.Speak(); // Calls Dog's version
+//myDog.Eat();   // Calls shared logic
+
+//myCat.Speak(); // Calls Cat's version
+//myCat.Eat();   // Calls shared logic
+#endregion
+
+# region 6.Interface
+Console.WriteLine("=== Interface Example with IVehicle ===\n");
+
+// Interface references
+IVehicle vehicle1 = new Car();
+IVehicle vehicle2 = new Bike();
+
+// Interface methods - polymorphic behavior
+vehicle1.Start();
+vehicle1.Stop();
+
+vehicle2.Start();
+vehicle2.Stop();
+#endregion
+
+
