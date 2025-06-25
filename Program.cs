@@ -1,9 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CSharp;
+using Hangfire;
+using Hangfire.MemoryStorage;
 using System;
 using static CSharp.Abstraction;
 using static CSharp.Interface;
-
+using CSharp.OOPS;
 
 
 Console.WriteLine("Hello, Geeks! We are learning her C# programming.");
@@ -99,7 +101,7 @@ Console.WriteLine("Hello, Geeks! We are learning her C# programming.");
 //Console.WriteLine(firstAhmedabadCustomer?.Name); // Raj
 #endregion
 
-# region 5.Mutlthreading
+#region 5.Mutlthreading
 
 //Console.WriteLine("Multithreading Demo App");
 
@@ -124,7 +126,7 @@ Console.WriteLine("Hello, Geeks! We are learning her C# programming.");
 
 #endregion
 
-# region 6.Abstraction
+#region 6.Abstraction
 //Console.WriteLine("=== Abstraction Example with Abstract Class ===\n");
 
 //// We cannot do: Animal a = new Animal(); // ❌ Compilation error
@@ -141,19 +143,65 @@ Console.WriteLine("Hello, Geeks! We are learning her C# programming.");
 //myCat.Eat();   // Calls shared logic
 #endregion
 
-# region 6.Interface
-Console.WriteLine("=== Interface Example with IVehicle ===\n");
+#region 6.Interface
+//Console.WriteLine("=== Interface Example with IVehicle ===\n");
 
-// Interface references
-IVehicle vehicle1 = new Car();
-IVehicle vehicle2 = new Bike();
+//// Interface references
+//IVehicle vehicle1 = new Car();
+//IVehicle vehicle2 = new Bike();
 
-// Interface methods - polymorphic behavior
-vehicle1.Start();
-vehicle1.Stop();
+//// Interface methods - polymorphic behavior
+//vehicle1.Start();
+//vehicle1.Stop();
 
-vehicle2.Start();
-vehicle2.Stop();
+//vehicle2.Start();
+//vehicle2.Stop();
 #endregion
 
+#region 7.Hangfire
+//HangfireExample he = new HangfireExample();
+//// 1. Configure Hangfire with In-Memory storage (or use SQL Server, etc.)
 
+//GlobalConfiguration.Configuration.UseMemoryStorage();
+
+//// 2. Start Hangfire server
+//using (var server = new BackgroundJobServer())
+//{
+//    Console.WriteLine("Hangfire Server started...");
+
+//    // 3. Fire-and-forget job
+//    BackgroundJob.Enqueue(() => he.PrintMessage("Fire-and-forget job"));
+
+//    // 4. Delayed job
+//    BackgroundJob.Schedule(() => he.PrintMessage("Delayed job (5s later)"), TimeSpan.FromSeconds(5));
+
+//    // 5. Recurring job (every minute)
+//    RecurringJob.AddOrUpdate("recurring", () => he.PrintMessage("Recurring job"), Cron.Minutely);
+
+//    // Keep the app running
+//    Console.WriteLine("Press Enter to exit...");
+//    Console.ReadLine();
+//}
+
+
+#endregion
+
+#region contructor
+//Console.WriteLine("=== Constructor Example ===\n");
+//Person person = new Person("John Doe", 30);
+//person.SayHello(); // Output: Hello, my name is John Doe
+////It is a method within a class that is called automatically when an object of that class is created.
+#endregion
+
+#region 9.Encapsulation
+////Encapsulation with Validation
+//var account = new Encpsulation();
+////account.Balance = -500;  // ❌ Throws exception
+//account.Balance = 500;  
+//Console.WriteLine($"Account balance: {account.Balance}"); // Output: Account balance: 500
+
+//Order order = new Order(12345);
+//Console.WriteLine(order.OrderDate);  //Allowed
+//order.OrderDate = DateTime.Now;     //  Compilation error ,cuase i trying change the value of read-only property
+
+#endregion
